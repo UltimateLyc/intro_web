@@ -1,0 +1,80 @@
+.main 
+{
+    /* Va a indicar la poscion de los elementos de su interior */
+    border: 2px black solid;
+    height: 700px;
+    width: 700px;
+    /* primero hay que colocar el display: flex */
+    display: flex;
+    /* mover los elementos en el eje x u horizontal*/
+    justify-content: space-around;
+    /* mover los elementos en el eje y o vertical */
+    align-items: center;
+    /* cambia de horizontales a verticales o reversear */
+    flex-direction: row;
+
+}
+
+/* ************************************************************ */
+
+/* Medidas para los primeros hijos */
+.secundary, .secundary_2
+{
+    border: 2px red solid;
+    width: 40%;
+    height: 40%;
+}
+
+/* Medidas para los hijos de los segundos */
+
+.third_1, .third_2, .third_3, .third_4, .third_5, .third_6
+{
+    border: 2px blue solid;
+    width: 25%;
+    height: 25%;
+}
+
+/* Medidas para los hijos de los terceros */
+
+.fourth
+{
+    border: 2px green solid;
+    width: 25%;
+    height: 25%;
+}
+
+/* acomodo de los terceros */
+
+.main .secundary
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main .secundary_2
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+/* acomodo de los cuartos */
+
+.main .secundary .third_1, .third_3, .third_5
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.main .secundary .third_2, .third_4, .third_6
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,0 +1,104 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.grid-container
+{
+    margin: 15px;
+    display: grid;
+    /* Utilizabdo unuidad auto */
+    /* grid-template-columns: auto auto auto; */
+    /* utilizando unidad fr */
+    grid-template-columns: 3fr 2fr 1fr ;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 20px;
+    background-color: #c16e70;
+}
+
+.grid-item
+{
+    background-color: #DC9E82;
+    border: 2px solid #151e3f;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.grid-container_2
+{
+    margin: 15px;
+    display: grid;
+    padding: 20px;
+    height: 500px;
+    background-color: #71c16e;
+
+    grid-template-columns: 3fr 2fr 3fr ;
+
+    /* mismo espacio entre filas y columnas */
+        /* gap: 10px; */
+    /* Espacio entre filas */
+    row-gap: 20px; /* O se puede usar grid-row-gap */
+    /* Espacio entre las columnas */
+    column-gap: 30px; /* O se puede usar grid-colum-gap */
+    
+    /* Justifica el contenido de nuestro container(items) */
+        /* Derecha */
+            /*  justify-items: start;  */
+        /* Izquierda */
+            /* justify-items: end; */ 
+        /* Centro */
+            /* justify-items: center;  */
+    
+    /* alinea el contenido del container (vertical) */
+        /* Arriba */
+            /* align-items: flex-end; */
+
+    /* Alinea y justificaen la misma linde a de codigo */
+    place-content: center center;
+}
+
+.grid-item_2
+{
+    background-color: #82dbdc;
+    border: 2px solid #3f1515;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.grid-container_3
+{
+    margin: 15px;
+    display: grid;
+    height: 300px;
+    /*  */
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    /* padding: 20px; */
+    background-color: #c16e70;
+}
+
+.grid-item_3
+{
+    background-color: #DC9E82;
+    border: 2px solid #151e3f;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    /* justificar el contenido */
+        /* justify-self: end ; */
+    /* alineamos el contenido */
+        /* align-self: flex-end; */
+    /* Justificamos y alineamos en la misma code line */
+        place-self: center center;
+}

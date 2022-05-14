@@ -1,0 +1,98 @@
+/* Float & Clear */
+
+.padre
+{
+    background-color: aqua;
+    height: 500px;
+    width: 80%;
+}
+
+.hijo1
+{
+    background-color: black;
+    height: 250px;
+    width: 250px;
+    float: left;
+}
+
+.hijo2
+{
+    background-color: red;
+    height: 350px;
+    width: 350px;
+    float: right;
+}
+
+.hijo3
+{
+    background-color: blue;
+    height: 450px;
+    width: 450px;
+    /* clear: right; */
+    float: right;
+}
+
+.hijo4
+{
+    background-color: green;
+    height: 50px;
+    width: 50px;
+    clear: both;
+}
+
+/* Position */
+
+.anakin
+{
+    background-color: aquamarine;
+    height: 700px;
+    width: 100%;
+}
+
+.lik1
+{
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    position: static; /* Deja la posicion estatica del contenedor */
+}
+
+.lik2
+{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 40px;
+    left: 10px;
+}
+
+.lik3
+{
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+    position: absolute; /* Con absolute considera toda la pagina web brincando el orden del div en el que se enccunetre */
+    top: 40px;
+    left: 20px;
+}
+
+.lik4
+{
+    background-color: green;
+    height: 50px;
+    width: 50px;
+    position: fixed; /* permite que el div o contenedor quede fijo en la parte que se coloque mientras se mueve el scroll*/
+    right: 26px;
+    bottom: 25px;
+}
+
+.lik5
+{
+    background-color: yellow;
+    height: 50px;
+    width: 50px;
+    position: sticky;
+    left: 26px;
+    bottom: 250px;
+}
