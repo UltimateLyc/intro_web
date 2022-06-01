@@ -16,5 +16,5 @@ age = Number(actualYear) - Number(year_of_birth); // Number se usa para cambiar 
 //Cuarto paso: mostrar datos
 document.write('Hola ' + fullName + ', tu edad aproximada es: ' + age);
 
-typeof(age);
+typeof(age); // Para saber el tipo de datos
 typeof(fullName);
