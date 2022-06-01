@@ -4,7 +4,7 @@
 console.log('Hola Mundo');
 console.log(1994);
 console.log(2 + 4);
-console.log(10 < 6);
+console.log("3" ==  3);
 
 // 2.- document.write
 document.write ('Hola Mundo');
