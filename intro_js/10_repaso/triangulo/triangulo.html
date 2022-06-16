@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./triangulo.css">
+    <title>Triangulo</title>
+    <script defer src="./triangulo.js"></script>
+</head>
+<body>
+
+    <main>
+        <section >
+            <h2>Calcular el area de un triangulo</h2>
+            
+            <div>
+                <label for="base">Base</label>
+                <input id="base" type="text">
+                <br>
+                
+                <label for="height">Altura</label>
+                <input id="height" type="text">
+                <br>
+
+                <label for="area">Area:</label>
+                <input type="text" id="area" disabled readonly>
+            </div>
+            
+            <br>
+            <br>
+            <br>
+
+            <div>
+                <label for="sideA">Lado A</label>
+                <input id="sideA" type="text">
+                <br>
+
+                <label for="sideB">Lado B</label>
+                <input id="sideB" type="text">
+                <br>
+
+                <label for="perimeter">Perimetro:</label>
+                <input type="text" id="perimeter" disabled readonly>
+            </div>
+
+            <br>
+            <button onclick="sendRequest()">Enviar</button>
+        </section>
+
+       
+
+
+    </main>
+    
+</body>
+</html>

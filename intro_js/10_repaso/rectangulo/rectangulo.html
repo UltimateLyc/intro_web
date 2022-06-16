@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="rectangulo.css">
+    <title>Rectangulo</title>
+    <script defer src="rectangulo.js"></script>
+</head>
+<body>
+    <div class="container">
+        <label for="base">Base</label>
+        <input id="base" type="text">
+        <br>
+
+        <label for="altura">Altura</label>
+        <input id="altura" type="text">
+        <br>
+
+        <label for="area">Área</label>
+        <input id="area" type="text" disabled readonly>
+        <br>
+
+        <button onclick="obtenerArea()">Obtener el área</button><!-- el onclick sirve para darle una funcion al boton y usarla en JS -->
+    </div>
+</body>
+</html>
