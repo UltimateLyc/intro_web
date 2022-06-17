@@ -4,13 +4,15 @@ const usuario = [
         nombre: "",
         edad: null,
         esAdulto: true,
-    }
+    },
+
     {
         id: 1,
         nombre: "",
         edad: null,
         esVip: true,
-    }
+    },
+
     {
         id: 3,
         nombre: "",
