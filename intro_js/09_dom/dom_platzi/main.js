@@ -22,3 +22,8 @@
 //document.append // append('text', document.createElement('etiqueta')) //es el appendChild mejorado, 1.- Puedes agregar mas de un nodo 2.- puedes agregar texo 
 //document.insertBefore // document.insertBefore (nose, reference) // 
 //referencia.insertAdjacentElemt // beforebegin, afterbegin, beforeend, afterend
+
+const li = document.createElement('li'); // con esto creamos un etiqueta mas no la posicionamos en ningun lugar del HTML
+li.textContent = 'primer elemento';
+
+lista.appendChild(li); // de esta manera incoporo a la clase o id un hijo
