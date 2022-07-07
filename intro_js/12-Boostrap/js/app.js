@@ -1,4 +1,4 @@
-const textArray =[];
+//const textArray =[];
 
 document.getElementById('add').addEventListener("click", createListItem); //Esto sustituye al "onclick"
 
