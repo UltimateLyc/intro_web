@@ -9,6 +9,12 @@ El maestro de física tiene un
    mientras que el maestro de música tiene un atributo "edad"
    también guardando un valor numérico.
 
+   *************************************************************************************
+
+Extra: (NO ES OBLIGATORIO)
+Crear una clase de materias y que un profesor pueda tener varias materias
+Hacer una clase grupo con un método para sacar el promedio del grupo
+
  */
 
    class Maestro //superclase, clase padre
@@ -76,7 +82,6 @@ pedro.saludar()
 
 let sofia = new MaestroMusica(29)
 console.log("🚀 ~ file: ejercicio_1.js ~ line 78 ~ sofia", sofia)
-
 
 /* Esto no se puede porque saludar no está definido en estas clases
 sofia.saludar()
