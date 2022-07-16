@@ -24,7 +24,7 @@
 
 /*  Function arrow */ 
 
-const palindrome = (palabra) =>
+const palindrome = palabra =>
 {
     let noSpace =  palabra.replace(/ /g,"");
 

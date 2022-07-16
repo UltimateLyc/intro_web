@@ -19,7 +19,7 @@ const paises = ["México", "Panamá", "Estados Unidos de Norte America", "Guatem
 } */
 
 /* Function arrow */
-const longestCountry = (arreglo) =>
+const longestCountry = arreglo =>
 {
     let longest = 0;
     let container = 0;
