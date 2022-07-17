@@ -1,6 +1,3 @@
-/* 
-4.-  Un almacén tiene capacidad para apilar “n” contenedores. Cada contenedor tiene una posición. Cuando se desea retirar un contenedor específico, deben retirarse primero los contenedores que están encima de él y colocarlos en otra pila, efectuar el retiro y regresarlos a su respectivo lugar.
-*/
 class Stack 
 {
     constructor()
@@ -36,7 +33,7 @@ class Stack
 
 let stack = new Stack();
 let stack_auxiliar = new Stack();
-stack.push (3,2,3,4,8,1,2,5,25,35,59,36);
+stack.push (3,2,3,4,8,1,2,5,25,35);
 stack.print();
 
 const montacargas = (pila,numero) =>
@@ -54,6 +51,7 @@ const montacargas = (pila,numero) =>
 
     do
     {
+        iterador++; //jejejej solo cambie donde inicia el iterado :3
         if (iterador === numero)
         {
             //console.log("entere")
@@ -64,7 +62,7 @@ const montacargas = (pila,numero) =>
             secureContainer = stack_auxiliar.pop();
             pila.push(secureContainer);
         }
-        iterador++;
+        
     }while(stack_auxiliar.size() !== 0)
 
     console.log(`El stack deseado es: ${principalContainer}`);
