@@ -30,14 +30,29 @@ Object.keys(meteoritos).forEach((elemento, indice, arreglo) =>{
 
     //con for each
     listaXdia.forEach((elemento,indice, arreglo)=>{
-        if(elemento.is_potentially_hazardous_asteroid)
+       /*  if(elemento.is_potentially_hazardous_asteroid)
         {
             console.log(`El meteorito ${elemento.name} es potencialmente peligroso. El diametro estimado es: ${(((elemento.estimated_diameter.meters.estimated_diameter_min)+(elemento.estimated_diameter.meters.estimated_diameter_max))/2).toFixed(2)} metros`)
         }
         else
         {
             console.log(`Este metiorito ${elemento.name} no es peligroso. El diametro estimado es: ${(((elemento.estimated_diameter.meters.estimated_diameter_min)+(elemento.estimated_diameter.meters.estimated_diameter_max))/2).toFixed(2)} metros`)
-        }
+        } */
     })
-}) //De esta manera recorremos las llaves (fechas) de manera automatica y nos imprime los elementos 
+}) 
+//De esta manera recorremos las llaves (fechas) de manera automatica y nos imprime los elementos 
 //ya que no podemos mandar el ID: 0 ya que es un JSON y el ID nuevo es la "fecha"
+
+//*****************  Fotos de Marte *****************
+
+ let urlFotosApi = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=${key}`;
+
+ async function fotosMarte(url)
+ {
+    let respuestaApiFotos = await fetch(url);
+    let respuestaApiJson = await respuestaApiFotos.json();
+    console.log(respuestaApiJson.photos[0].camera);
+    console.log(respuestaApiJson.photos[0].rover);
+ }
+
+ fotosMarte(urlFotosApi);
