@@ -1,58 +1,106 @@
 console.log('API de la NASA');
-import fetch from "node-fetch";
-const key = 'QbohNMZcTf3ZNi4GPxnBnPpCKocqtYacoaPF8aRw';
-
-let urlapi = `https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=${key}`;
-
-const respuestaApi = await fetch(urlapi); //Cuando revisamos un api usamos await para que esta tenga el tiempo de buscar y luego almacenarla
-/* console.log(respuestaApi) */
-
-const respuestaJson = await respuestaApi.json(); //Guardamos el JSON en una variable 
-/* console.log(respuestaJson); */
-
-let meteoritos = respuestaJson.near_earth_objects;/*['2015-09-08'];//Harcode */ //Leemos el objeto y lo guardamos 
-/* console.log(meteoritos) */ //Imprime todo el JSON
-
-Object.keys(meteoritos).forEach((elemento, indice, arreglo) =>{
-    let listaXdia = meteoritos[elemento]
-    //Con for normal
-    /* for(let i = 0; i < listaXdia.length; i++)
-    {
-        if(listaXdia[i].is_potentially_hazardous_asteroid)
-        {
-            console.log(`El meteorito ${listaXdia[i].name} es potencialmente peligroso`)
-        }
-        else
-        {
-            console.log(`Este metiorito ${listaXdia[i].name} no es peligroso`)
-        }
-    } */
-
-    //con for each
-    listaXdia.forEach((elemento,indice, arreglo)=>{
-       /*  if(elemento.is_potentially_hazardous_asteroid)
-        {
-            console.log(`El meteorito ${elemento.name} es potencialmente peligroso. El diametro estimado es: ${(((elemento.estimated_diameter.meters.estimated_diameter_min)+(elemento.estimated_diameter.meters.estimated_diameter_max))/2).toFixed(2)} metros`)
-        }
-        else
-        {
-            console.log(`Este metiorito ${elemento.name} no es peligroso. El diametro estimado es: ${(((elemento.estimated_diameter.meters.estimated_diameter_min)+(elemento.estimated_diameter.meters.estimated_diameter_max))/2).toFixed(2)} metros`)
-        } */
-    })
-}) 
-//De esta manera recorremos las llaves (fechas) de manera automatica y nos imprime los elementos 
-//ya que no podemos mandar el ID: 0 ya que es un JSON y el ID nuevo es la "fecha"
-
 //*****************  Fotos de Marte *****************
 
- let urlFotosApi = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=${key}`;
+/* Variables Globales */
 
- async function fotosMarte(url)
- {
-    let respuestaApiFotos = await fetch(url);
+const key = 'QbohNMZcTf3ZNi4GPxnBnPpCKocqtYacoaPF8aRw';
+const roverGeneral = "curiosity";
+let contadorPaginas = 1;
+let urlFotosApi = `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverGeneral}/photos?sol=1000&page=${contadorPaginas}&api_key=${key}`;
+let selectRobert = document.getElementById("robot");
+
+async function fotosMarte(rover)
+{
+    urlFotosApi = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=1000&page=${contadorPaginas}&api_key=${key}`; //Tiene que ir primero que todo para que cambie la el valor de "rover" 
+    console.log("urlFotosApi", urlFotosApi) //Monitoreo de lo que ingresa a urlFotoApi
+
+    /* Variables locales */
+    let respuestaApiFotos = await fetch(urlFotosApi);
+    //console.log("respuestaApiFotos", respuestaApiFotos) // Muestra la consulta al API
+    
     let respuestaApiJson = await respuestaApiFotos.json();
-    console.log(respuestaApiJson.photos[0].camera);
-    console.log(respuestaApiJson.photos[0].rover);
- }
+    //console.log("respuestaApiJson", respuestaApiJson)//Muesta el JSON que entrega el API
+    
+    let listaFotos = respuestaApiJson.photos;
+    console.log(listaFotos); // Muestra los obejtos del Array del JSON
+    
+    let tamañoLista =  listaFotos.length;
+    console.log("tamañoLista", tamañoLista)//El tamalo del Array de objetos
+    
+    next(tamañoLista);
+    preview(contadorPaginas);
 
- fotosMarte(urlFotosApi);
+    let contenedor = document.getElementById("contenedor_cartas");
+    contenedor.innerHTML = ""; //Con esto limpiamos el contenedor
+    
+
+    listaFotos.forEach((elemento, indice, arreglo) => {
+        contenedor.innerHTML += 
+        `<div class = "card mb-2 col-sm-12 com-md-6 col-lg-4" style="width: 18rem;">
+            <img src=${elemento.img_src} class="card-img-top" alt=${elemento.id}>
+            <div class="card-body">
+                <h5 class="card-title">${elemento.camera.full_name}</h5>
+                <p class="card-text">${elemento.earth_date}</p>
+            </div>
+        </div>`
+    });
+    //console.log(respuestaApiJson.photos);
+    //console.log(respuestaApiJson.photos[0].camera);
+    //console.log(respuestaApiJson.photos[0].rover);
+}
+
+function buscar()
+{
+    let maquina = selectRobert.value;
+    console.log("maquina", maquina)
+    contadorPaginas = 1;
+    fotosMarte(maquina);
+}
+
+const next = (tamaño) =>
+{
+    let siguiente = document.getElementById("siguiente")
+
+    if (tamaño >= 25)
+    {
+        siguiente.classList.remove('invisible');
+        siguiente.classList.add('visible');
+    }
+    else 
+    {
+        siguiente.classList.remove('visible');
+        siguiente.classList.add('invisible');
+    }
+}
+
+function siguiente()
+{
+    contadorPaginas++;
+    console.log(contadorPaginas)
+    let roverSiguiente = selectRobert.value;
+    preview(contadorPaginas);
+    fotosMarte(roverSiguiente);
+}
+
+const preview = (contador) =>
+{
+    let anterior = document.getElementById("anterior")
+    if (contador >= 2)
+    {
+        anterior.classList.remove('invisible');
+        anterior.classList.add('visible');
+    }
+    else if (contador < 2)
+    {
+        anterior.classList.remove('visible');
+        anterior.classList.add('invisible');
+    }
+}
+
+function anterior()
+{
+    contadorPaginas--;
+    let roverAnterior = selectRobert.value;
+    fotosMarte(roverAnterior);
+    //preview(contadorPaginas);
+}
