@@ -6,7 +6,7 @@ const goodReadsCrud = require('./crudAuthors')
 //goodReadsCrud.listAuthors()
 
 //Lista a un autor por su ID
-//goodReadsCrud.getAuthors(14827)
+//goodReadsCrud.getAuthors(14627)
 
 //Crear un Autor
 const jsonSend = 
@@ -27,4 +27,7 @@ const updateData =
     name: "Juan",
     last_name: "perez"
 }
-goodReadsCrud.patchAuthor(14827, updateData)
+//goodReadsCrud.patchAuthor(14827, updateData)
+
+//Eliminar un autor
+goodReadsCrud.deleteAuthor(14627)

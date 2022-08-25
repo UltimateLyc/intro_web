@@ -84,10 +84,26 @@ const patchAuthor = (id, jsonData) => {
     })
 }
 
+//Eliminar un autor
+const deleteAuthor = (id) => {
+    request.delete(URI+id+'/',(error,response,body)=>{
+        if(response.statusCode === 204)
+        {
+            console.log("El autor fue eliminado exitosamente")
+        }
+        else
+        {
+            console.log(response.statusCode, response.statusMessage)
+                    //          404             Not Found
+        }
+    })
+}
 
+//Sirve para exportar las funciones a otro archivo
 module.exports = {
     listAuthors,
     getAuthors,
     createAuthor,
-    patchAuthor
+    patchAuthor,
+    deleteAuthor
 }
