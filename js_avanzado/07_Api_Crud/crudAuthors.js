@@ -58,7 +58,28 @@ const createAuthor = (jsonData) => {
         else
         {
             console.log(response.statusCode, response.statusMessage)
-                                //          404             Not Found
+                    //          404             Not Found
+        }
+    })
+}
+
+//Partial Update de un Autor
+const patchAuthor = (id, jsonData) => {
+    const objConfig = {
+        url: URI + id + '/',
+        form: jsonData // Esta es mi data que deseo modificar en mi JSON
+    }
+
+    request.patch(objConfig,(error, response, body) => {
+        if(response.statusCode === 200)
+        {
+            const author = JSON.parse(body)
+            console.log("Se actualizo el autor correctamente: ", author)
+        }
+        else
+        {
+            console.log(response.statusCode, response.statusMessage)
+                    //          404             Not Found
         }
     })
 }
@@ -67,5 +88,6 @@ const createAuthor = (jsonData) => {
 module.exports = {
     listAuthors,
     getAuthors,
-    createAuthor
+    createAuthor,
+    patchAuthor
 }
