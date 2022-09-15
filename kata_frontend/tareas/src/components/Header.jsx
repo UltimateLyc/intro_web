@@ -1,4 +1,4 @@
-import Button from "./Button"
+import Button from './Button'
 
 const Header = (props) => {
   
@@ -6,9 +6,9 @@ const Header = (props) => {
     console.log('click')
   }
 
-  const saludo = () => {
+/*   const saludo = () => {
     console.log('holi')
-  }
+  } */
 
   return (
 
@@ -18,7 +18,7 @@ const Header = (props) => {
             {props.titulo}  {/* Mandamos a llamar atravez de props el titulo */}
         </h1>
         <Button texto='Agregar' color='black' onClick={onClick} />
-        <Button texto='Boton 2' color='blue' onClick={saludo}/>
+        {/* <Button texto='Boton 2' color='blue' onClick={saludo}/> */}
 
     </header>
   )
