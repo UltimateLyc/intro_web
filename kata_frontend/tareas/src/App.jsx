@@ -5,6 +5,8 @@ import AddTarea from './AddTarea'
 
 function App() {
 
+  const [mostrarForm, setMostartForm] = useState (false)
+
   const [tareas, setTareas] = useState ([
     {
       id: 1,
@@ -26,7 +28,18 @@ function App() {
     }
   ])
 
-//Funcion que va a borrar una tarea
+//Agregar una tarea
+const addTarea = (tarea) => {
+  //console.log(tarea)
+  const id = Math.floor(Math.random() * 10000) + 1
+
+  const nuevaTarea = {id, ...tarea}
+
+  setTareas([...tareas, nuevaTarea])
+  
+}
+
+//borrar una tarea
 const borrarTarea = (id) => {
   //console.log('action delete task', id)
   setTareas(tareas.filter((tarea) => tarea.id !== id)) // Con filter recorremos el array y nos da uno nuevo diferentes al id que seleccionamos
@@ -39,8 +52,8 @@ const terminarTarea = (id) =>{
 
   return (
     <div className='container'>
-      <Header titulo = 'Tareas' /> {/* ejecutanos el componente */}
-      <AddTarea />
+      <Header onAdd={() => setMostartForm(!mostrarForm)} mostrarForm={mostrarForm} /> {/* ejecutanos el componente */}
+      {mostrarForm && <AddTarea onAdd={addTarea} />}
       {tareas.length > 0 ? <Tareas tareas = {tareas} onDelete={borrarTarea} onToggle={terminarTarea}/> : 'No hay tareas para mostrar'}
     </div>
   )
