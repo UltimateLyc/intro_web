@@ -7,8 +7,12 @@ const Example2 = () => {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
+        //Ejemplo 2.1
         setCount(10)
         console.log(count)
+
+        //Ejemplo 2.2
+        //count < 15 && setCount(10)
     },[])
 
     return (
