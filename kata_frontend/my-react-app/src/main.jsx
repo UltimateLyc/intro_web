@@ -1,9 +1,13 @@
+// librerias
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'/* import ReactDOM from 'react-dom/client' */
 
+// componentes
 import App from './pages/App'
 
+// Estilos
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/index.css'
 
 const root = document.getElementById('root')
 const container = createRoot(root)
