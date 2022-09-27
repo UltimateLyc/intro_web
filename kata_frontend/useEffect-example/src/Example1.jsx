@@ -1,5 +1,5 @@
 /**
- * Con este ejemplo vemos 
+ * Con este ejemplo vemos
  */
 import { useEffect, useState } from 'react'
 
@@ -9,7 +9,7 @@ const Example1 = () => {
   useEffect(() => {
     setCount(10)
     console.log(count
-      )
+    )
   })
 
   return (

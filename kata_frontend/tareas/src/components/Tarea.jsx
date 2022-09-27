@@ -1,20 +1,20 @@
 import { FaTimes } from 'react-icons/fa'
 
-const Tarea = ({tarea, onDelete, onToggle}) => {
+const Tarea = ({ tarea, onDelete, onToggle }) => {
   return (
     <div className={`tarea ${tarea.terminada ? 'terminada' : ''}`} onDoubleClick={() => onToggle(tarea.id)}>
-        <h3>
-          {tarea.text} 
-          <FaTimes onClick={() => onDelete(tarea.id)}  style={estiloTimes}/> 
-        </h3>
+      <h3>
+        {tarea.text}
+        <FaTimes onClick={() => onDelete(tarea.id)} style={estiloTimes} />
+      </h3>
 
-        <p>{tarea.fecha}</p>
+      <p>{tarea.fecha}</p>
     </div>
   )
 }
 
 const estiloTimes = {
-  cursor: 'pointer', 
+  cursor: 'pointer',
   color: 'red'
 }
 
