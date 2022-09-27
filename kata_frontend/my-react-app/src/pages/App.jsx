@@ -4,7 +4,7 @@
 // estilos
 
 // components
-import Container from '../components/Container'
+import Countries from '../components/Countries'
 import Navbar from '../components/Navbar'
 
 // funciones propias
@@ -12,9 +12,8 @@ import Navbar from '../components/Navbar'
 function App () {
   return (
     <>
-      <Container>
-        <Navbar /> {/* con children podemos pasar un componente como props */}
-      </Container>
+      <Navbar />
+      <Countries />
     </>
   )
 }
