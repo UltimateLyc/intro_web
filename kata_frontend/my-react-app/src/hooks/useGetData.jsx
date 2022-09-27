@@ -1,7 +1,9 @@
+// Creacion de un custom hook
+
 import { useEffect, useState } from 'react'
 
 const useGetData = (url) => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([] || {})
   const [loading, setLoading] = useState(true)
 
   const getData = async () => {

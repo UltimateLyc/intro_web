@@ -13,8 +13,10 @@ const Router = () => {
       <Routes>
         <Route path='/' element={<App />}>
           <Route index element={<Countries />} />
-          <Route path='country' element={<Country />} />
+          <Route path=':code' element={<Country />} /> {/* de este manera hacemos una ruta dinamica */}
+          {/* <Route path='link' element={<p className='text-white'>Enlace</p>} /> */}
         </Route>
+        <Route path='*' element={<p>Paguina no encontrada</p>} />
       </Routes>
     </BrowserRouter>
   )
